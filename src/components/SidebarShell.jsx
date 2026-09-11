@@ -21,8 +21,8 @@ export default function SidebarShell({
   onSelectNavTab,
   onOpenSettings,
   onOpenBundleModal,
-  calculateMonthly,
-  t
+  calculateMonthly = () => ({ total: 89, discount: '' }),
+  t = (k) => k
 }) {
   const externalApps = [
     {
@@ -60,48 +60,48 @@ export default function SidebarShell({
   ];
 
   return (
-    <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 z-30 bg-black/90 backdrop-blur-xl border-r border-white/[0.08] text-zinc-300 select-none">
+    <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 z-30 bg-white/95 dark:bg-black/90 backdrop-blur-xl border-r border-slate-200 dark:border-white/[0.08] text-slate-700 dark:text-zinc-300 select-none">
       <div className="flex flex-col h-full justify-between p-4 space-y-4">
         
         {/* Top: Logo & Workspace */}
         <div className="space-y-5">
           {/* Brand Logo */}
           <div className="flex items-center gap-3 px-1.5 pt-1">
-            <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center shadow-md shadow-white/10 text-black shrink-0 font-black">
+            <div className="w-9 h-9 rounded-xl bg-slate-900 dark:bg-white flex items-center justify-center shadow-md text-white dark:text-black shrink-0 font-black">
               <Layers className="w-5 h-5 stroke-[2.2]" />
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="font-bold text-sm tracking-tight text-white">
+                <span className="font-bold text-sm tracking-tight text-slate-900 dark:text-white">
                   {t('suiteTitle') || 'EziBiz'}
                 </span>
-                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-white/10 text-zinc-300 border border-white/10">
+                <span className="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-zinc-300 border border-slate-200 dark:border-white/10">
                   {t('hubTitle') || 'Hub'}
                 </span>
               </div>
-              <p className="text-[11px] text-zinc-500 truncate">
+              <p className="text-[11px] text-slate-500 dark:text-zinc-500 truncate">
                 {t('tagline') || 'Unified Operations'}
               </p>
             </div>
           </div>
 
           {/* Workspace Switcher / Badge */}
-          <div className="px-3 py-2.5 rounded-xl bg-zinc-950/80 border border-white/[0.08] shadow-rim flex items-center justify-between group hover:border-white/20 transition-colors cursor-pointer">
+          <div className="px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-zinc-950/80 border border-slate-200 dark:border-white/[0.08] shadow-sm dark:shadow-rim flex items-center justify-between group hover:border-slate-300 dark:hover:border-white/20 transition-colors cursor-pointer">
             <div className="min-w-0">
-              <div className="flex items-center gap-1.5 text-zinc-500 text-[10px] uppercase font-mono tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <div className="flex items-center gap-1.5 text-slate-500 dark:text-zinc-500 text-[10px] uppercase font-mono tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse"></span>
                 <span>{t('workspace') || 'Workspace'}</span>
               </div>
-              <p className="text-xs font-medium text-zinc-200 truncate mt-0.5">
+              <p className="text-xs font-medium text-slate-800 dark:text-zinc-200 truncate mt-0.5">
                 KakiTekno Global Inc.
               </p>
             </div>
-            <ChevronDown className="w-3.5 h-3.5 text-zinc-500 group-hover:text-zinc-300 transition-colors" />
+            <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-600 dark:text-zinc-500 dark:group-hover:text-zinc-300 transition-colors" />
           </div>
 
           {/* Group 1: BROWSE */}
           <div className="space-y-1">
-            <div className="px-2 pb-1.5 text-[10px] font-mono uppercase tracking-widest text-zinc-500">
+            <div className="px-2 pb-1.5 text-[10px] font-mono uppercase tracking-widest text-slate-400 dark:text-zinc-500">
               Browse
             </div>
             {[
@@ -122,12 +122,12 @@ export default function SidebarShell({
                   }}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
                     isActive
-                      ? 'bg-zinc-900 text-white font-semibold border border-white/10 shadow-rim'
-                      : 'text-zinc-400 hover:text-white hover:bg-zinc-900/60'
+                      ? 'bg-indigo-50 text-indigo-600 border border-indigo-200 dark:bg-zinc-900 dark:text-white dark:border-white/10 shadow-sm dark:shadow-rim font-semibold'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-900/60'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
-                    <Icon className="w-4 h-4 shrink-0 text-zinc-400" />
+                    <Icon className={`w-4 h-4 shrink-0 ${isActive ? 'text-indigo-600 dark:text-white' : 'text-slate-400 dark:text-zinc-400'}`} />
                     <span>{item.label}</span>
                   </div>
                   {isActive && <span className="sidebar-active-dot" aria-hidden="true" />}
@@ -137,8 +137,8 @@ export default function SidebarShell({
           </div>
 
           {/* Group 2: APPS & ECOSYSTEM */}
-          <div className="space-y-1 pt-2 border-t border-white/[0.06]">
-            <div className="px-2 pb-1.5 text-[10px] font-mono uppercase tracking-widest text-zinc-500">
+          <div className="space-y-1 pt-2 border-t border-slate-200 dark:border-white/[0.06]">
+            <div className="px-2 pb-1.5 text-[10px] font-mono uppercase tracking-widest text-slate-400 dark:text-zinc-500">
               Apps & Micro-Frontends
             </div>
             {externalApps.map(app => {
@@ -147,17 +147,17 @@ export default function SidebarShell({
                 <a
                   key={app.id}
                   href={app.url}
-                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-all group"
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-900/60 transition-all group"
                   target="_blank"
                   rel="noreferrer"
                 >
                   <div className="flex items-center gap-2.5 min-w-0">
-                    <Icon className="w-4 h-4 shrink-0 text-zinc-500 group-hover:text-zinc-200 transition-colors" />
+                    <Icon className="w-4 h-4 shrink-0 text-slate-400 dark:text-zinc-500 group-hover:text-slate-700 dark:group-hover:text-zinc-200 transition-colors" />
                     <span className="truncate">{app.name}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className={`w-1.5 h-1.5 rounded-full ${app.dotColor}`} />
-                    <ExternalLink className="w-3 h-3 text-zinc-600 group-hover:text-zinc-400 transition-colors" />
+                    <ExternalLink className="w-3 h-3 text-slate-400 dark:text-zinc-600 group-hover:text-slate-600 dark:group-hover:text-zinc-400 transition-colors" />
                   </div>
                 </a>
               );
@@ -166,17 +166,17 @@ export default function SidebarShell({
         </div>
 
         {/* Bottom Sidebar Footer */}
-        <div className="space-y-2 pt-3 border-t border-white/[0.06]">
+        <div className="space-y-2 pt-3 border-t border-slate-200 dark:border-white/[0.06]">
           {/* Entitlements Button */}
           <button
             onClick={onOpenBundleModal}
-            className="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-zinc-950/80 border border-white/[0.08] shadow-rim hover:border-white/20 text-xs transition-colors cursor-pointer text-zinc-200"
+            className="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-slate-50 dark:bg-zinc-950/80 border border-slate-200 dark:border-white/[0.08] shadow-sm dark:shadow-rim hover:border-slate-300 dark:hover:border-white/20 text-xs transition-colors cursor-pointer text-slate-700 dark:text-zinc-200"
           >
             <span className="flex items-center gap-1.5 font-medium">
-              <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+              <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
               <span>{t('suiteEntitlements') || 'Suite Pro'}</span>
             </span>
-            <span className="font-mono text-zinc-300 font-semibold">${calculateMonthly().total}/mo</span>
+            <span className="font-mono text-slate-900 dark:text-zinc-300 font-semibold">${calculateMonthly().total}/mo</span>
           </button>
 
           {/* Quick Actions Row */}
@@ -184,10 +184,10 @@ export default function SidebarShell({
             <button
               type="button"
               onClick={onOpenSettings}
-              className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs font-medium text-zinc-400 hover:text-white hover:bg-zinc-900/60 transition-colors cursor-pointer"
+              className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-xs font-medium text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-zinc-900/60 transition-colors cursor-pointer"
               title={t('settings') || 'Settings'}
             >
-              <Settings className="w-4 h-4 text-zinc-500" />
+              <Settings className="w-4 h-4 text-slate-400 dark:text-zinc-500" />
               <span>{t('settings') || 'Settings'}</span>
             </button>
 

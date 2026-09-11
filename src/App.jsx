@@ -209,28 +209,28 @@ export default function App() {
     : recentEvents.filter(e => e.module === liveFilter);
 
   return (
-    <div className="min-h-screen bg-black text-zinc-100 flex flex-col md:flex-row font-sans selection:bg-white/20 selection:text-white transition-colors duration-200">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col md:flex-row font-sans selection:bg-indigo-500/20 selection:text-indigo-900 dark:selection:bg-white/20 dark:selection:text-white transition-colors duration-200">
       
       {/* DESKTOP SIDEBAR (Recent.design Canonical Shell) */}
       <SidebarShell 
-        activeNavTab={activeNavTab}
-        onSelectNavTab={setActiveNavTab}
-        onOpenSettings={() => setShowSettingsModal(true)}
-        onOpenBundleModal={() => setShowBundleModal(true)}
-        calculateMonthly={calculateMonthly}
-        t={t}
+        activeNavTab={activeNavTab} 
+        onSelectNavTab={setActiveNavTab} 
+        onOpenSettings={() => setShowSettingsModal(true)} 
+        onOpenBundleModal={() => setShowBundleModal(true)} 
+        calculateMonthly={calculateMonthly} 
+        t={t} 
       />
 
       {/* MOBILE TOP BAR (Visible < 768px) */}
-      <header className="md:hidden sticky top-0 z-40 bg-black/90 backdrop-blur-xl border-b border-white/[0.08] px-4 h-14 flex items-center justify-between transition-colors">
+      <header className="md:hidden sticky top-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur border-b border-slate-200 dark:border-slate-800 px-4 h-14 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-black shadow-xs font-bold">
+          <div className="w-8 h-8 rounded-lg bg-slate-900 dark:bg-white flex items-center justify-center text-white dark:text-black shadow-xs font-bold">
             <Layers className="w-4 h-4" />
           </div>
           <div>
             <div className="flex items-center gap-1.5">
-              <span className="font-bold text-sm tracking-tight text-white">EziBiz</span>
-              <span className="text-[10px] font-mono px-1.5 py-0.2 rounded-full bg-white/10 text-zinc-300 border border-white/10">Hub</span>
+              <span className="font-bold text-sm tracking-tight text-slate-900 dark:text-white">EziBiz</span>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-zinc-300 border border-slate-200 dark:border-white/10">Hub</span>
             </div>
           </div>
         </div>
@@ -239,7 +239,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setShowBundleModal(true)}
-            className="text-xs font-mono px-2 py-1 rounded-lg bg-zinc-900 text-zinc-300 border border-white/10 shadow-rim"
+            className="text-xs font-mono px-2 py-1 rounded-lg bg-slate-100 dark:bg-zinc-900 text-slate-700 dark:text-zinc-300 border border-slate-200 dark:border-white/10 shadow-sm"
           >
             ${calculateMonthly().total}/mo
           </button>
@@ -248,42 +248,42 @@ export default function App() {
       </header>
 
       {/* MAIN CONTENT AREA */}
-      <div className="md:pl-64 flex-1 flex flex-col min-w-0 pb-20 md:pb-8">
+      <div className="md:pl-64 flex-1 flex flex-col min-w-0 pb-24 md:pb-8">
         
         {/* TOP FLOATING CONTROL BAR (Recent.design style) */}
-        <header className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/[0.08] px-4 sm:px-8 py-3 hidden md:flex items-center justify-between gap-4">
+        <header className="sticky top-0 z-20 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-slate-200 dark:border-white/[0.08] px-4 sm:px-8 py-3 hidden md:flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 flex-1 max-w-md">
-            <div className="w-full flex items-center gap-2 px-3 py-1.5 rounded-xl bg-zinc-950/80 border border-white/[0.08] text-xs text-zinc-400 shadow-rim">
-              <Search className="w-3.5 h-3.5 text-zinc-500" />
+            <div className="w-full flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-zinc-950/80 border border-slate-200 dark:border-white/[0.08] text-xs text-slate-500 dark:text-zinc-400 shadow-sm dark:shadow-rim">
+              <Search className="w-3.5 h-3.5 text-slate-400 dark:text-zinc-500" />
               <span className="truncate">Search modules, events, or operations...</span>
-              <kbd className="ml-auto hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-zinc-900 border border-white/10 rounded text-zinc-400">⌘K</kbd>
+              <kbd className="ml-auto hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono bg-slate-200/80 dark:bg-zinc-900 border border-slate-300 dark:border-white/10 rounded text-slate-600 dark:text-zinc-400">⌘K</kbd>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             {/* Live Telemetry Pill */}
-            <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-zinc-950/80 border border-white/[0.08] text-[11px] font-mono text-zinc-400 shadow-rim">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-slate-50 dark:bg-zinc-950/80 border border-slate-200 dark:border-white/[0.08] text-[11px] font-mono text-slate-600 dark:text-zinc-400 shadow-sm dark:shadow-rim">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse"></span>
               <span>12ms</span>
-              <span className="text-zinc-600">•</span>
-              <span className="text-zinc-300">Edge Streaming</span>
+              <span className="text-slate-300 dark:text-zinc-600">•</span>
+              <span className="text-slate-700 dark:text-zinc-300">Edge Streaming</span>
             </div>
 
             {/* Stream Pause/Resume Toggle */}
             <button
               type="button"
               onClick={togglePause}
-              className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-xl border border-white/[0.08] bg-zinc-900 hover:bg-zinc-800 text-zinc-200 transition-all cursor-pointer shadow-rim"
+              className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-xl border border-slate-200 dark:border-white/[0.08] bg-slate-100 hover:bg-slate-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-200 transition-all cursor-pointer shadow-sm dark:shadow-rim"
             >
               {isPaused ? (
                 <>
-                  <Play className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Resume</span>
+                  <Play className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                  <span>{t('resume')}</span>
                 </>
               ) : (
                 <>
-                  <Pause className="w-3.5 h-3.5 text-zinc-400" />
-                  <span>Pause</span>
+                  <Pause className="w-3.5 h-3.5 text-slate-500 dark:text-zinc-400" />
+                  <span>{t('pause')}</span>
                 </>
               )}
             </button>
@@ -294,59 +294,59 @@ export default function App() {
 
         <main className="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8">
           
-          {/* HERO BANNER (Recent.design obsidian theme) */}
-          <div id="overview" className="relative rounded-2xl bg-gradient-to-br from-zinc-900 via-zinc-950 to-black text-white border border-white/[0.12] p-6 sm:p-8 overflow-hidden shadow-card-elevated shadow-rim">
+          {/* HERO BANNER (Recent.design dual-mode theme) */}
+          <div id="overview" className="relative rounded-2xl bg-gradient-to-r from-slate-100 via-white to-indigo-50/50 border border-slate-200 dark:from-slate-900 dark:via-slate-900/95 dark:to-indigo-950/40 dark:border-slate-800 p-6 sm:p-8 overflow-hidden shadow-sm dark:shadow-card-elevated">
             <div className="absolute right-0 top-0 translate-x-12 -translate-y-12 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
             
             <div className="relative z-10 max-w-3xl space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-zinc-200 text-xs font-medium backdrop-blur-sm shadow-rim">
-                <Zap className="w-3.5 h-3.5 text-amber-400" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-200/60 dark:bg-white/[0.06] border border-slate-300 dark:border-white/10 text-slate-700 dark:text-zinc-200 text-xs font-medium backdrop-blur-sm shadow-sm dark:shadow-rim">
+                <Zap className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
                 <span>{t('heroBadge')}</span>
               </div>
-              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
+              <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
                 {t('heroTitle')}
               </h1>
-              <p className="text-zinc-400 text-xs sm:text-sm leading-relaxed">
+              <p className="text-slate-600 dark:text-zinc-400 text-xs sm:text-sm leading-relaxed">
                 {t('heroSubtitle')}
               </p>
             </div>
 
             {/* Quick Metrics Bar */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-white/[0.08]">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-200 dark:border-white/[0.08]">
               <div className="space-y-1">
-                <p className="text-xs text-zinc-400 font-medium">{t('metricRevenue')}</p>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 font-medium">{t('metricRevenue')}</p>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-xl font-bold text-emerald-400 font-mono tabular-nums">RM 84,920</span>
-                  <span className="text-xs text-emerald-400 font-medium">+18.4%</span>
+                  <span className="text-xl font-bold text-emerald-600 dark:text-emerald-400 font-mono tabular-nums">RM 84,920</span>
+                  <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">+18.4%</span>
                 </div>
-                <p className="text-[11px] text-zinc-500 truncate">{t('metricRevenueSub')}</p>
+                <p className="text-[11px] text-slate-500 dark:text-zinc-500 truncate">{t('metricRevenueSub')}</p>
               </div>
 
               <div className="space-y-1">
-                <p className="text-xs text-zinc-400 font-medium">{t('metricInventory')}</p>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 font-medium">{t('metricInventory')}</p>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-xl font-bold text-zinc-100 font-mono tabular-nums">RM 32,850</span>
-                  <span className="text-xs text-zinc-400 font-medium">{t('metricInventoryCat')}</span>
+                  <span className="text-xl font-bold text-slate-900 dark:text-zinc-100 font-mono tabular-nums">RM 32,850</span>
+                  <span className="text-xs text-slate-500 dark:text-zinc-400 font-medium">{t('metricInventoryCat')}</span>
                 </div>
-                <p className="text-[11px] text-zinc-500 truncate">{t('metricInventorySub')}</p>
+                <p className="text-[11px] text-slate-500 dark:text-zinc-500 truncate">{t('metricInventorySub')}</p>
               </div>
 
               <div className="space-y-1">
-                <p className="text-xs text-zinc-400 font-medium">{t('metricWorkflows')}</p>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 font-medium">{t('metricWorkflows')}</p>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-xl font-bold text-zinc-100 font-mono tabular-nums">14 Active</span>
-                  <span className="text-xs text-indigo-400 font-medium">100% SLA</span>
+                  <span className="text-xl font-bold text-slate-900 dark:text-zinc-100 font-mono tabular-nums">14 Active</span>
+                  <span className="text-xs text-indigo-600 dark:text-indigo-400 font-medium">100% SLA</span>
                 </div>
-                <p className="text-[11px] text-zinc-500 truncate">{t('metricWorkflowsSub')}</p>
+                <p className="text-[11px] text-slate-500 dark:text-zinc-500 truncate">{t('metricWorkflowsSub')}</p>
               </div>
 
               <div className="space-y-1">
-                <p className="text-xs text-zinc-400 font-medium">{t('metricPackaging')}</p>
+                <p className="text-xs text-slate-500 dark:text-zinc-400 font-medium">{t('metricPackaging')}</p>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-xl font-bold text-zinc-100 font-mono tabular-nums">5 Modules</span>
-                  <span className="text-xs text-emerald-400 font-medium">{t('metricPackagingStatus')}</span>
+                  <span className="text-xl font-bold text-slate-900 dark:text-zinc-100 font-mono tabular-nums">5 Modules</span>
+                  <span className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">{t('metricPackagingStatus')}</span>
                 </div>
-                <p className="text-[11px] text-zinc-500 truncate">{t('metricPackagingSub')}</p>
+                <p className="text-[11px] text-slate-500 dark:text-zinc-500 truncate">{t('metricPackagingSub')}</p>
               </div>
             </div>
           </div>
@@ -362,7 +362,7 @@ export default function App() {
                   {t('modulesSub')}
                 </p>
               </div>
-              <span className="text-xs text-slate-500 font-mono hidden sm:inline">
+              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono hidden sm:inline">
                 {t('modulesBadge')}
               </span>
             </div>
@@ -370,42 +370,42 @@ export default function App() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
               
               {/* Module 1: Akaun */}
-              <div className="group relative rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-emerald-500/40 shadow-rim hover:shadow-card-elevated hover:scale-[1.01] transition-all duration-200 p-5 flex flex-col justify-between space-y-4">
+              <div className="group relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 dark:hover:border-emerald-500/40 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-200 p-5 flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 flex items-center justify-center shadow-rim">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20 flex items-center justify-center">
                       <Receipt className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-900 text-emerald-400 border border-emerald-500/20 shadow-rim">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
                       {t('module1Badge')}
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                       {t('module1Name')}
                     </h3>
-                    <p className="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-3">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed line-clamp-3">
                       {t('module1Desc')}
                     </p>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-black/60 border border-white/[0.06] text-xs space-y-1 shadow-rim">
-                    <div className="flex justify-between text-zinc-400">
+                  <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-black/60 border border-slate-200 dark:border-white/[0.06] text-xs space-y-1">
+                    <div className="flex justify-between text-slate-500 dark:text-zinc-400">
                       <span>{t('module1Metric1')}</span>
-                      <span className="font-mono text-zinc-200 font-semibold tabular-nums">RM 32,850</span>
+                      <span className="font-mono text-slate-800 dark:text-zinc-200 font-semibold tabular-nums">RM 32,850</span>
                     </div>
-                    <div className="flex justify-between text-zinc-400">
+                    <div className="flex justify-between text-slate-500 dark:text-zinc-400">
                       <span>{t('module1Metric2')}</span>
-                      <span className="font-medium text-emerald-400">{t('module1Metric2Val')}</span>
+                      <span className="font-medium text-emerald-600 dark:text-emerald-400">{t('module1Metric2Val')}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                <div className="pt-2 border-t border-slate-100 dark:border-white/[0.06] flex items-center justify-between">
                   <a 
                     href={MODULE_URLS.akaun}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
                   >
                     <span>{t('launchApp')}</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -414,50 +414,50 @@ export default function App() {
                     href="https://github.com/Amran-KakiTekno/ezibiz-akaun" 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="text-zinc-500 hover:text-zinc-300 text-xs transition-colors"
+                    className="text-slate-500 hover:text-slate-700 dark:text-zinc-500 dark:hover:text-zinc-300 text-xs transition-colors"
                   >
-                    GitHub
+                    {t('githubRepo') || 'GitHub'}
                   </a>
                 </div>
               </div>
 
               {/* Module 2: CRMS */}
-              <div className="group relative rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-indigo-500/40 shadow-rim hover:shadow-card-elevated hover:scale-[1.01] transition-all duration-200 p-5 flex flex-col justify-between space-y-4">
+              <div className="group relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 dark:hover:border-indigo-500/40 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-200 p-5 flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 flex items-center justify-center shadow-rim">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20 flex items-center justify-center">
                       <MessageSquareText className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-900 text-indigo-400 border border-indigo-500/20 shadow-rim">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-900 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-500/20">
                       {t('module2Badge')}
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-white group-hover:text-indigo-400 transition-colors">
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                       {t('module2Name')}
                     </h3>
-                    <p className="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-3">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed line-clamp-3">
                       {t('module2Desc')}
                     </p>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-black/60 border border-white/[0.06] text-xs space-y-1 shadow-rim">
-                    <div className="flex justify-between text-zinc-400">
+                  <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-black/60 border border-slate-200 dark:border-white/[0.06] text-xs space-y-1">
+                    <div className="flex justify-between text-slate-500 dark:text-zinc-400">
                       <span>{t('module2Metric1')}</span>
-                      <span className="font-mono text-zinc-200 font-semibold tabular-nums">{t('module2Metric1Val')}</span>
+                      <span className="font-mono text-slate-800 dark:text-zinc-200 font-semibold tabular-nums">{t('module2Metric1Val')}</span>
                     </div>
-                    <div className="flex justify-between text-zinc-400">
+                    <div className="flex justify-between text-slate-500 dark:text-zinc-400">
                       <span>{t('module2Metric2')}</span>
-                      <span className="font-medium text-indigo-400">{t('module2Metric2Val')}</span>
+                      <span className="font-medium text-indigo-600 dark:text-indigo-400">{t('module2Metric2Val')}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                <div className="pt-2 border-t border-slate-100 dark:border-white/[0.06] flex items-center justify-between">
                   <a 
                     href={MODULE_URLS.crms}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-400 hover:text-indigo-300 transition-colors"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
                   >
                     <span>{t('launchApp')}</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -466,50 +466,50 @@ export default function App() {
                     href="https://github.com/Amran-KakiTekno/ezibiz-crms" 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="text-zinc-500 hover:text-zinc-300 text-xs transition-colors"
+                    className="text-slate-500 hover:text-slate-700 dark:text-zinc-500 dark:hover:text-zinc-300 text-xs transition-colors"
                   >
-                    GitHub
+                    {t('githubRepo') || 'GitHub'}
                   </a>
                 </div>
               </div>
 
               {/* Module 3: HRMS */}
-              <div className="group relative rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-cyan-500/40 shadow-rim hover:shadow-card-elevated hover:scale-[1.01] transition-all duration-200 p-5 flex flex-col justify-between space-y-4">
+              <div className="group relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 dark:hover:border-cyan-500/40 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-200 p-5 flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center shadow-rim">
+                    <div className="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-500/20 flex items-center justify-center">
                       <CalendarClock className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-900 text-cyan-400 border border-cyan-500/20 shadow-rim">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-900 text-cyan-600 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-500/20">
                       {t('module3Badge')}
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                       {t('module3Name')}
                     </h3>
-                    <p className="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-3">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed line-clamp-3">
                       {t('module3Desc')}
                     </p>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-black/60 border border-white/[0.06] text-xs space-y-1 shadow-rim">
-                    <div className="flex justify-between text-zinc-400">
+                  <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-black/60 border border-slate-200 dark:border-white/[0.06] text-xs space-y-1">
+                    <div className="flex justify-between text-slate-500 dark:text-zinc-400">
                       <span>{t('module3Metric1')}</span>
-                      <span className="font-mono text-zinc-200 font-semibold tabular-nums">{t('module3Metric1Val')}</span>
+                      <span className="font-mono text-slate-800 dark:text-zinc-200 font-semibold tabular-nums">{t('module3Metric1Val')}</span>
                     </div>
-                    <div className="flex justify-between text-zinc-400">
+                    <div className="flex justify-between text-slate-500 dark:text-zinc-400">
                       <span>{t('module3Metric2')}</span>
-                      <span className="font-medium text-cyan-400">{t('module3Metric2Val')}</span>
+                      <span className="font-medium text-cyan-600 dark:text-cyan-400">{t('module3Metric2Val')}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                <div className="pt-2 border-t border-slate-100 dark:border-white/[0.06] flex items-center justify-between">
                   <a 
                     href={MODULE_URLS.hrms}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors"
                   >
                     <span>{t('launchApp')}</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -518,50 +518,50 @@ export default function App() {
                     href="https://github.com/Amran-KakiTekno/ezibiz-hrms" 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="text-zinc-500 hover:text-zinc-300 text-xs transition-colors"
+                    className="text-slate-500 hover:text-slate-700 dark:text-zinc-500 dark:hover:text-zinc-300 text-xs transition-colors"
                   >
-                    GitHub
+                    {t('githubRepo') || 'GitHub'}
                   </a>
                 </div>
               </div>
 
               {/* Module 4: JMB (Strata) */}
-              <div className="group relative rounded-2xl bg-zinc-950/80 border border-white/[0.08] hover:border-amber-500/40 shadow-rim hover:shadow-card-elevated hover:scale-[1.01] transition-all duration-200 p-5 flex flex-col justify-between space-y-4">
+              <div className="group relative rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-amber-500/40 dark:hover:border-amber-500/40 shadow-sm hover:shadow-md hover:scale-[1.01] transition-all duration-200 p-5 flex flex-col justify-between space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center shadow-rim">
+                    <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20 flex items-center justify-center">
                       <Building2 className="w-5 h-5" />
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-900 text-amber-400 border border-amber-500/20 shadow-rim">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-zinc-900 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-500/20">
                       {t('module4Badge')}
                     </span>
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-white group-hover:text-amber-400 transition-colors">
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                       {t('module4Name')}
                     </h3>
-                    <p className="text-xs text-zinc-400 mt-1 leading-relaxed line-clamp-3">
+                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed line-clamp-3">
                       {t('module4Desc')}
                     </p>
                   </div>
-                  <div className="p-2.5 rounded-xl bg-black/60 border border-white/[0.06] text-xs space-y-1 shadow-rim">
-                    <div className="flex justify-between text-zinc-400">
+                  <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-black/60 border border-slate-200 dark:border-white/[0.06] text-xs space-y-1">
+                    <div className="flex justify-between text-slate-500 dark:text-zinc-400">
                       <span>{t('module4Metric1')}</span>
-                      <span className="font-mono text-zinc-200 font-semibold tabular-nums">{t('module4Metric1Val')}</span>
+                      <span className="font-mono text-slate-800 dark:text-zinc-200 font-semibold tabular-nums">{t('module4Metric1Val')}</span>
                     </div>
-                    <div className="flex justify-between text-zinc-400">
+                    <div className="flex justify-between text-slate-500 dark:text-zinc-400">
                       <span>{t('module4Metric2')}</span>
-                      <span className="font-medium text-amber-400">{t('module4Metric2Val')}</span>
+                      <span className="font-medium text-amber-600 dark:text-amber-400">{t('module4Metric2Val')}</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+                <div className="pt-2 border-t border-slate-100 dark:border-white/[0.06] flex items-center justify-between">
                   <a 
                     href={MODULE_URLS.residential}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+                    className="inline-flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 transition-colors"
                   >
                     <span>{t('launchApp')}</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -570,9 +570,9 @@ export default function App() {
                     href="https://github.com/Amran-KakiTekno/ezibiz-jmb" 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="text-zinc-500 hover:text-zinc-300 text-xs transition-colors"
+                    className="text-slate-500 hover:text-slate-700 dark:text-zinc-500 dark:hover:text-zinc-300 text-xs transition-colors"
                   >
-                    GitHub
+                    {t('githubRepo') || 'GitHub'}
                   </a>
                 </div>
               </div>
@@ -580,31 +580,31 @@ export default function App() {
             </div>
           </section>
 
-          {/* CROSS-MODULE EVENT BUS & RECENT.DESIGN ACTIVITY BENTO */}
-          <section id="events" className="rounded-2xl bg-zinc-950/80 border border-white/[0.08] p-6 space-y-6 shadow-rim">
+          {/* CROSS-MODULE EVENT BUS */}
+          <section id="events" className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 space-y-6 shadow-sm">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2.5">
-                  <Activity className="w-4 h-4 text-indigo-400" />
-                  <h3 className="text-base font-bold text-white tracking-tight">
+                  <Activity className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white tracking-tight">
                     {t('eventBusTitle')}
                   </h3>
                   <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${
                     isPaused 
-                      ? 'bg-amber-500/10 text-amber-300 border-amber-500/20' 
-                      : 'bg-indigo-500/10 text-indigo-300 border-indigo-500/20'
+                      ? 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-500/20' 
+                      : 'bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-500/20'
                   }`}>
                     {isPaused ? t('paused') : t('streaming')}
                   </span>
                 </div>
-                <p className="text-xs text-zinc-400 mt-1">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                   {t('eventBusSub')}
                 </p>
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
-                {/* Recent.design Segmented Pill Category Filter */}
-                <div className="flex items-center gap-1 bg-black/60 p-1 rounded-full border border-white/[0.08] shadow-rim">
+                {/* Category Filter */}
+                <div className="flex items-center gap-1 bg-slate-100 dark:bg-black/60 p-1 rounded-full border border-slate-200 dark:border-white/[0.08]">
                   {['all', 'invoicing', 'intake', 'scheduling', 'residential'].map(key => (
                     <button
                       key={key}
@@ -612,11 +612,11 @@ export default function App() {
                       onClick={() => setLiveFilter(key)}
                       className={`text-xs capitalize px-3 py-1 rounded-full transition-all cursor-pointer ${
                         liveFilter === key 
-                          ? 'bg-white text-black font-semibold shadow-xs' 
-                          : 'text-zinc-400 hover:text-white hover:bg-zinc-900/60'
+                          ? 'bg-white dark:bg-slate-800 text-slate-900 dark:text-white font-semibold shadow-xs' 
+                          : 'text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-zinc-900/60'
                       }`}
                     >
-                      {key === 'all' ? t('filterAll') : key}
+                      {key === 'all' ? t('filterAll') : (t(`filter${key.charAt(0).toUpperCase() + key.slice(1)}`) || key)}
                     </button>
                   ))}
                 </div>
@@ -626,17 +626,17 @@ export default function App() {
                   <button
                     type="button"
                     onClick={togglePause}
-                    className="flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-xl border border-white/[0.08] bg-zinc-900 hover:bg-zinc-800 text-zinc-200 transition-all cursor-pointer shadow-rim"
+                    className="flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-white/[0.08] bg-slate-100 hover:bg-slate-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-slate-700 dark:text-zinc-200 transition-all cursor-pointer shadow-xs"
                     title={isPaused ? t('resume') : t('pause')}
                   >
                     {isPaused ? (
                       <>
-                        <Play className="w-3.5 h-3.5 text-emerald-400" />
+                        <Play className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                         <span>{t('resume')}</span>
                       </>
                     ) : (
                       <>
-                        <Pause className="w-3.5 h-3.5 text-zinc-400" />
+                        <Pause className="w-3.5 h-3.5 text-slate-500 dark:text-zinc-400" />
                         <span>{t('pause')}</span>
                       </>
                     )}
@@ -645,7 +645,7 @@ export default function App() {
                   <button
                     type="button"
                     onClick={clearFeed}
-                    className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-xl border border-white/[0.08] bg-black/60 text-zinc-400 hover:text-rose-400 hover:border-rose-500/30 transition-colors cursor-pointer shadow-rim"
+                    className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-white/[0.08] bg-slate-100 hover:bg-slate-200 dark:bg-black/60 text-slate-600 hover:text-rose-600 dark:text-zinc-400 dark:hover:text-rose-400 transition-colors cursor-pointer shadow-xs"
                     title={t('clear')}
                   >
                     <Trash2 className="w-3.5 h-3.5" />
@@ -655,7 +655,7 @@ export default function App() {
                   <button
                     type="button"
                     onClick={resetFeed}
-                    className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-xl border border-white/[0.08] bg-black/60 text-zinc-400 hover:text-white transition-colors cursor-pointer shadow-rim"
+                    className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-xl border border-slate-200 dark:border-white/[0.08] bg-slate-100 hover:bg-slate-200 dark:bg-black/60 text-slate-600 hover:text-slate-900 dark:text-zinc-400 dark:hover:text-white transition-colors cursor-pointer shadow-xs"
                     title={t('reset')}
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
@@ -671,30 +671,30 @@ export default function App() {
                 <button
                   type="button"
                   onClick={showQueuedEvents}
-                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-zinc-900 text-zinc-200 border border-white/10 hover:border-white/20 transition-all shadow-rim cursor-pointer group"
+                  className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium bg-slate-100 dark:bg-zinc-900 text-slate-800 dark:text-zinc-200 border border-slate-200 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 transition-all shadow-xs cursor-pointer group"
                 >
-                  <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+                  <span className="w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 animate-pulse" />
                   <span>{t('newEventsAvailable', { count: queuedEvents.length })}</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-indigo-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </button>
               </div>
             )}
 
-            {/* Recent.design Activity Bento Layout */}
+            {/* Activity Bento Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-2">
               
               {/* Left 2 Columns: Dynamic Event Feed */}
               <div className="lg:col-span-2 space-y-3">
                 {filteredEvents.length === 0 ? (
-                  <div className="py-12 text-center space-y-3 rounded-xl border border-white/[0.06] bg-black/40 p-8 shadow-rim">
-                    <p className="text-xs text-zinc-500">
+                  <div className="py-12 text-center space-y-3 rounded-xl border border-slate-200 dark:border-white/[0.06] bg-slate-50 dark:bg-black/40 p-8 shadow-xs">
+                    <p className="text-xs text-slate-500 dark:text-zinc-500">
                       {recentEvents.length === 0 ? t('feedCleared') : t('noEvents')}
                     </p>
                     {recentEvents.length === 0 && (
                       <button
                         type="button"
                         onClick={resetFeed}
-                        className="inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:underline font-medium cursor-pointer"
+                        className="inline-flex items-center gap-1.5 text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium cursor-pointer"
                       >
                         <RotateCcw className="w-3.5 h-3.5" />
                         <span>{t('restoreEvents')}</span>
@@ -708,103 +708,103 @@ export default function App() {
                       href={MODULE_URLS[event.module] || '#'}
                       target="_blank"
                       rel="noreferrer"
-                      className="group p-4 rounded-xl bg-black/50 border border-white/[0.08] hover:border-white/20 hover:bg-zinc-900/40 shadow-rim transition-all duration-200 flex flex-col justify-between space-y-2.5"
+                      className="group p-4 rounded-xl bg-slate-50/70 dark:bg-black/50 border border-slate-200 dark:border-white/[0.08] hover:border-slate-300 dark:hover:border-white/20 hover:bg-slate-100/70 dark:hover:bg-zinc-900/40 shadow-xs transition-all duration-200 flex flex-col justify-between space-y-2.5"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex items-center gap-2.5">
                           <span className={`px-2 py-0.5 rounded-full text-[10px] font-mono border ${event.color}`}>
                             {event.badge}
                           </span>
-                          <span className="font-semibold text-xs text-zinc-100 group-hover:text-white transition-colors">
+                          <span className="font-semibold text-xs text-slate-900 dark:text-zinc-100 group-hover:text-indigo-600 dark:group-hover:text-white transition-colors">
                             {event.title}
                           </span>
                         </div>
                         <div className="flex items-center gap-1.5 shrink-0">
-                          <span className="text-zinc-500 font-mono text-[11px] whitespace-nowrap">{event.timestamp}</span>
-                          <ArrowUpRight className="w-3.5 h-3.5 text-zinc-600 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                          <span className="text-slate-400 dark:text-zinc-500 font-mono text-[11px] whitespace-nowrap">{event.timestamp}</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 dark:text-zinc-600 group-hover:text-slate-900 dark:group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                         </div>
                       </div>
-                      <p className="text-xs text-zinc-400 leading-relaxed pl-0.5">{event.desc}</p>
+                      <p className="text-xs text-slate-600 dark:text-zinc-400 leading-relaxed pl-0.5">{event.desc}</p>
                     </a>
                   ))
                 )}
               </div>
 
-              {/* Right 1 Column: Embedded In-Feed Widgets (Recent.design style) */}
+              {/* Right 1 Column: Embedded In-Feed Widgets */}
               <div className="space-y-4">
                 {/* Widget 1: Suite Financial Runway */}
-                <div className="rounded-xl bg-black/60 border border-white/[0.08] p-4 shadow-rim space-y-3">
-                  <div className="flex items-center justify-between pb-2 border-b border-white/[0.06]">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-zinc-200">
-                      <TrendingUp className="w-4 h-4 text-emerald-400" />
+                <div className="rounded-xl bg-slate-50 dark:bg-black/60 border border-slate-200 dark:border-white/[0.08] p-4 shadow-xs space-y-3">
+                  <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-white/[0.06]">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 dark:text-zinc-200">
+                      <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                       <span>Suite Cashflow & Runway</span>
                     </div>
-                    <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-500/20">
                       LHDN e-Invoice
                     </span>
                   </div>
                   <div className="space-y-2 text-xs">
-                    <div className="flex justify-between text-zinc-400">
+                    <div className="flex justify-between text-slate-600 dark:text-zinc-400">
                       <span>Monthly Inflow</span>
-                      <span className="font-mono text-zinc-200 font-bold tabular-nums">RM 84,920.00</span>
+                      <span className="font-mono text-slate-900 dark:text-zinc-200 font-bold tabular-nums">RM 84,920.00</span>
                     </div>
-                    <div className="flex justify-between text-zinc-400">
+                    <div className="flex justify-between text-slate-600 dark:text-zinc-400">
                       <span>Operating Margin</span>
-                      <span className="font-mono text-emerald-400 font-semibold">+34.2%</span>
+                      <span className="font-mono text-emerald-600 dark:text-emerald-400 font-semibold">+34.2%</span>
                     </div>
-                    <div className="flex justify-between text-zinc-400">
+                    <div className="flex justify-between text-slate-600 dark:text-zinc-400">
                       <span>Reserve Runway</span>
-                      <span className="font-mono text-zinc-200 font-semibold">4.2 Months</span>
+                      <span className="font-mono text-slate-900 dark:text-zinc-200 font-semibold">4.2 Months</span>
                     </div>
                   </div>
                   <a
                     href={MODULE_URLS.akaun}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-xs font-medium text-zinc-300 hover:text-white border border-white/[0.08] transition-colors shadow-rim"
+                    className="w-full flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.08] transition-colors shadow-xs"
                   >
                     <span>View Financial Studio</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
                   </a>
                 </div>
 
                 {/* Widget 2: Live Geofence Shifts */}
-                <div className="rounded-xl bg-black/60 border border-white/[0.08] p-4 shadow-rim space-y-3">
-                  <div className="flex items-center justify-between pb-2 border-b border-white/[0.06]">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-zinc-200">
-                      <Users className="w-4 h-4 text-cyan-400" />
+                <div className="rounded-xl bg-slate-50 dark:bg-black/60 border border-slate-200 dark:border-white/[0.08] p-4 shadow-xs space-y-3">
+                  <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-white/[0.06]">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-900 dark:text-zinc-200">
+                      <Users className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                       <span>Downtown Flagship Roster</span>
                     </div>
-                    <span className="text-[10px] font-mono px-1.5 py-0.2 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-cyan-50 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border border-cyan-200 dark:border-cyan-500/20">
                       4 Active
                     </span>
                   </div>
                   <div className="space-y-2 text-xs">
                     <div className="flex items-center justify-between">
-                      <span className="text-zinc-300">Siti Sarah (Head Barista)</span>
-                      <span className="font-mono text-[11px] text-emerald-400">06:54 AM ●</span>
+                      <span className="text-slate-700 dark:text-zinc-300">Siti Sarah (Head Barista)</span>
+                      <span className="font-mono text-[11px] text-emerald-600 dark:text-emerald-400">06:54 AM ●</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-zinc-300">Ahmad Danial (Kitchen)</span>
-                      <span className="font-mono text-[11px] text-emerald-400">06:58 AM ●</span>
+                      <span className="text-slate-700 dark:text-zinc-300">Ahmad Danial (Kitchen)</span>
+                      <span className="font-mono text-[11px] text-emerald-600 dark:text-emerald-400">06:58 AM ●</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-zinc-400">Nurul Izzah (Cashier)</span>
-                      <span className="font-mono text-[11px] text-zinc-500">15:00 Shift</span>
+                      <span className="text-slate-500 dark:text-zinc-400">Nurul Izzah (Cashier)</span>
+                      <span className="font-mono text-[11px] text-slate-400 dark:text-zinc-500">15:00 Shift</span>
                     </div>
                   </div>
-                  <div className="pt-1 flex items-center gap-1.5 text-[11px] text-zinc-500 font-mono">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                  <div className="pt-1 flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-zinc-500 font-mono">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 dark:bg-cyan-400"></span>
                     <span>GPS Radius: 12m verified</span>
                   </div>
                   <a
                     href={MODULE_URLS.hrms}
                     target="_blank"
                     rel="noreferrer"
-                    className="w-full flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-xs font-medium text-zinc-300 hover:text-white border border-white/[0.08] transition-colors shadow-rim"
+                    className="w-full flex items-center justify-center gap-1.5 py-1.5 rounded-lg bg-white dark:bg-zinc-900 hover:bg-slate-100 dark:hover:bg-zinc-800 text-xs font-medium text-slate-700 dark:text-zinc-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.08] transition-colors shadow-xs"
                   >
                     <span>View Roster Radar</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
                   </a>
                 </div>
               </div>
@@ -816,7 +816,7 @@ export default function App() {
 
         {/* FOOTER */}
         <footer className="mt-auto border-t border-slate-200 dark:border-slate-800/80 bg-white dark:bg-slate-950 py-6 transition-colors">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
             <p>{t('footerCopy')}</p>
             <div className="flex items-center gap-4">
               <span>React 18 + Vite + Tailwind</span>
@@ -832,7 +832,7 @@ export default function App() {
       {/* MOBILE BOTTOM NAVIGATION BAR (Visible < 768px) */}
       <nav 
         aria-label="Mobile Bottom Navigation" 
-        className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 h-16 flex items-center justify-around px-2 shadow-lg transition-colors"
+        className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur border-t border-slate-200 dark:border-slate-800 h-16 pb-[env(safe-area-inset-bottom)] flex items-center justify-around px-2"
       >
         {[
           { id: 'overview', label: t('navOverview'), icon: Layers },
@@ -869,6 +869,7 @@ export default function App() {
           type="button"
           onClick={() => setShowSettingsModal(true)}
           className="flex flex-col items-center justify-center flex-1 h-full min-w-0 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+          title={t('settings')}
         >
           <Settings className="w-5 h-5 shrink-0" />
           <span className="text-[10px] mt-1 truncate max-w-[60px]">{t('settings')}</span>
