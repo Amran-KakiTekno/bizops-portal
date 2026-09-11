@@ -122,7 +122,7 @@ export default function App() {
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="font-bold text-lg tracking-tight text-white">BizOps</span>
+                  <span className="font-bold text-lg tracking-tight text-white">EziBiz</span>
                   <span className="text-xs font-mono px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Hub</span>
                 </div>
                 <p className="text-xs text-slate-400">Autonomous Business Operations</p>
@@ -146,7 +146,7 @@ export default function App() {
             </button>
 
             <a 
-              href="https://github.com/Amran-KakiTekno/bizops-portal" 
+              href="https://github.com/Amran-KakiTekno/ezibiz-hub" 
               target="_blank" 
               rel="noreferrer"
               className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-900 transition-colors"
@@ -168,7 +168,7 @@ export default function App() {
           <div className="relative z-10 max-w-3xl space-y-3">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-medium">
               <Zap className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Modular Micro-SaaS • Autonomous BizOps Platform</span>
+              <span>Modular Micro-SaaS • Autonomous EziBiz Suite</span>
             </div>
             <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">
               Sistem Operasi & Perakaunan SME Bersepadu
@@ -263,7 +263,7 @@ export default function App() {
 
               <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
                 <a 
-                  href="https://bizops-invoicing.pages.dev" 
+                  href="https://ezibiz-akaun.pages.dev" 
                   target="_blank" 
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
@@ -272,7 +272,7 @@ export default function App() {
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
                 <a 
-                  href="https://github.com/Amran-KakiTekno/bizops-invoicing" 
+                  href="https://github.com/Amran-KakiTekno/ezibiz-akaun" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-slate-500 hover:text-slate-300 text-xs"
@@ -315,16 +315,16 @@ export default function App() {
 
               <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
                 <a 
-                  href="https://bizops-intake.pages.dev" 
+                  href="https://ezibiz-quotes.pages.dev" 
                   target="_blank" 
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
                 >
-                  <span>Launch Intake App</span>
+                  <span>Launch Quotes App</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
                 <a 
-                  href="https://github.com/Amran-KakiTekno/bizops-intake" 
+                  href="https://github.com/Amran-KakiTekno/ezibiz-quotes" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-slate-500 hover:text-slate-300 text-xs"
@@ -347,16 +347,16 @@ export default function App() {
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                    Shift Exchange & Team Ops
+                    Workforce & HR Operations
                   </h3>
                   <p className="text-xs text-slate-400 mt-1 leading-relaxed">
-                    Ends weekend spreadsheet chaos. Peer-to-peer shift swaps, automated overtime rules, geofenced mobile clock-in, and instant no-show alerts.
+                    All-in-one team ops: smart shift rosters, peer swaps, mobile geo-attendance, leave/MC approval, employee credentials, and automated payroll runs.
                   </p>
                 </div>
                 <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 space-y-1 text-xs">
                   <div className="flex justify-between text-slate-400">
-                    <span>Swaps Auto-Mediated:</span>
-                    <span className="font-mono text-white font-medium">12 peer swaps</span>
+                    <span>Active Enrolled Staff:</span>
+                    <span className="font-mono text-white font-medium">16 team members</span>
                   </div>
                   <div className="flex justify-between text-slate-400">
                     <span>Overtime Violations:</span>
@@ -367,16 +367,16 @@ export default function App() {
 
               <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
                 <a 
-                  href="https://bizops-scheduling.pages.dev" 
+                  href="https://ezibiz-shifts.pages.dev" 
                   target="_blank" 
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
-                  <span>Launch Shifts App</span>
+                  <span>Launch Shifts & HR App</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
                 <a 
-                  href="https://github.com/Amran-KakiTekno/bizops-scheduling" 
+                  href="https://github.com/Amran-KakiTekno/ezibiz-shifts" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-slate-500 hover:text-slate-300 text-xs"
@@ -455,7 +455,7 @@ export default function App() {
             </div>
 
             <p className="text-xs text-slate-400 leading-relaxed">
-              Customers can pick and choose individual micro-products for $29/mo each, or unlock the unified BizOps Suite bundle at a 25% discount.
+              Customers can pick and choose individual micro-products for $29/mo each, or unlock the unified EziBiz Suite bundle at a 25% discount.
             </p>
 
             <div className="space-y-3">
@@ -514,7 +514,7 @@ export default function App() {
       {/* Footer */}
       <footer className="border-t border-slate-800/80 bg-slate-950 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© 2026 BizOps Platform • Built for @Amran-KakiTekno • Zero Cost Cloudflare Edge Deployment</p>
+          <p>© 2026 EziBiz Platform • Built for @Amran-KakiTekno • Zero Cost Cloudflare Edge Deployment</p>
           <div className="flex items-center gap-4">
             <span>React 18 + Vite + Tailwind</span>
             <span>•</span>

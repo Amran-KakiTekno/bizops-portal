@@ -1,6 +1,6 @@
 {
     "version":  "1.0.0",
-    "name":  "bizops-portal",
+    "name":  "ezibiz-hub",
     "scripts":  {
                     "preview":  "vite preview",
                     "build":  "vite build",
