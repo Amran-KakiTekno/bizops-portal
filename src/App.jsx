@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Layers, 
   Receipt, 
@@ -33,16 +33,16 @@ export default function App() {
     {
       id: 1,
       module: 'invoicing',
-      title: 'Payment Collected ($1,850.00)',
-      desc: 'Invoice #INV-2041 auto-settled via Stripe ACH. Zero human follow-up.',
+      title: 'Jualan Direkodkan & Stok Ditolak (RM 4,500.00)',
+      desc: 'Invois INV-2026-001 lunas via Maybank. Stok Silinder Gas tolak 25 unit.',
       timestamp: '2 mins ago',
-      badge: 'Cash Inflow',
+      badge: 'Jualan Lunas',
       color: 'text-emerald-400 border-emerald-500/20 bg-emerald-500/10'
     },
     {
       id: 2,
       module: 'intake',
-      title: 'DM Quote Converted to Paid Deposit ($350.00)',
+      title: 'DM Quote Converted to Paid Deposit (RM 350.00)',
       desc: 'Threads inquiry from @studio_luxe approved Proposal #PR-89. Card charged on file.',
       timestamp: '14 mins ago',
       badge: 'Zero Ghosting',
@@ -60,10 +60,10 @@ export default function App() {
     {
       id: 4,
       module: 'invoicing',
-      title: 'Polite Dunning Cadence Triggered',
-      desc: 'SMS reminder #2 delivered for Invoice #INV-2038 (Due +3 days). Payment link clicked.',
+      title: 'Baucar Bayaran PV-2026-001 Dijana',
+      desc: 'Bayaran Sewa Premis RM 3,200 dijana dan dimasukkan ke dalam Penyata Untung Rugi.',
       timestamp: '1 hour ago',
-      badge: 'Auto-Nudge',
+      badge: 'Baucar Bayaran',
       color: 'text-amber-400 border-amber-500/20 bg-amber-500/10'
     }
   ]);
@@ -83,11 +83,11 @@ export default function App() {
         {
           id: Date.now() + 1,
           module: 'invoicing',
-          title: 'Invoice #INV-2044 Paid ($620.00)',
-          desc: 'Instant settlement via Apple Pay link. Bank ledger entry reconciled automatically.',
+          title: 'Belian Stok Masuk Direkodkan (RM 5,550.00)',
+          desc: 'Stok Injap Tembaga bertambah 300 pcs. Baki pemiutang auto-dikemaskini.',
           timestamp: 'Just now',
-          badge: 'Auto-Reconciled',
-          color: 'text-emerald-400 border-emerald-500/20 bg-emerald-500/10'
+          badge: 'Stok Masuk',
+          color: 'text-cyan-400 border-cyan-500/20 bg-cyan-500/10'
         }
       ];
       const randomEvent = demoEvents[Math.floor(Math.random() * demoEvents.length)];
@@ -171,31 +171,31 @@ export default function App() {
               <span>Modular Micro-SaaS • Autonomous BizOps Platform</span>
             </div>
             <h1 className="text-2xl sm:text-4xl font-bold tracking-tight text-white">
-              Stop acting as manual data glue for your business.
+              Sistem Operasi & Perakaunan SME Bersepadu
             </h1>
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
-              Every module is an independent Git repo with its own Cloudflare Pages deployment. Pick individual tools or run the complete unified suite.
+              Kini dilengkapi modul <strong>Ezi-Akaun & Inventori</strong> (Jualan, Belian, Perbelanjaan, Baucar Bayaran, Kawalan Stok, P&L Bulanan & Kunci Kira-Kira).
             </p>
           </div>
 
           {/* Quick Metrics Bar */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-800/80">
             <div className="space-y-1">
-              <p className="text-xs text-slate-400 font-medium">Auto-Collected Revenue</p>
+              <p className="text-xs text-slate-400 font-medium">Hasil Jualan (Gross)</p>
               <div className="flex items-baseline gap-2">
-                <span className="text-xl font-bold text-emerald-400 font-mono">$84,920</span>
+                <span className="text-xl font-bold text-emerald-400 font-mono">RM 84,920</span>
                 <span className="text-xs text-emerald-500 font-medium">+18.4%</span>
               </div>
-              <p className="text-[11px] text-slate-500">Collected with 0 manual calls</p>
+              <p className="text-[11px] text-slate-500">Auto-update Penyata Untung Rugi</p>
             </div>
 
             <div className="space-y-1">
-              <p className="text-xs text-slate-400 font-medium">Admin Hours Saved</p>
+              <p className="text-xs text-slate-400 font-medium">Nilaian Stok Semasa</p>
               <div className="flex items-baseline gap-2">
-                <span className="text-xl font-bold text-white font-mono">42.5 hrs</span>
-                <span className="text-xs text-indigo-400 font-medium">This Week</span>
+                <span className="text-xl font-bold text-cyan-300 font-mono">RM 32,850</span>
+                <span className="text-xs text-cyan-400 font-medium">4 Kategori</span>
               </div>
-              <p className="text-[11px] text-slate-500">Auto-scheduling & auto-dunning</p>
+              <p className="text-[11px] text-slate-500">Auto-deduct daripada Jualan</p>
             </div>
 
             <div className="space-y-1">
@@ -204,7 +204,7 @@ export default function App() {
                 <span className="text-xl font-bold text-white font-mono">14 Active</span>
                 <span className="text-xs text-emerald-400 font-medium">100% SLA</span>
               </div>
-              <p className="text-[11px] text-slate-500">DMs parsed & shift guardrails</p>
+              <p className="text-[11px] text-slate-500">DMs parsed & baucar bayaran</p>
             </div>
 
             <div className="space-y-1">
@@ -230,7 +230,7 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            {/* Module 1: Invoicing */}
+            {/* Module 1: Ezi-Akaun */}
             <div className="group rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all p-5 flex flex-col justify-between space-y-5">
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
@@ -243,20 +243,20 @@ export default function App() {
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-white group-hover:text-emerald-400 transition-colors">
-                    Smart Invoicing & Auto-Dunning
+                    Ezi-Akaun & Inventori
                   </h3>
                   <p className="text-xs text-slate-400 mt-1 leading-relaxed">
-                    Ends the awkwardness of chasing overdue accounts. Polite progressive email/SMS reminders, instant payment links, and AR aging buckets.
+                    Sistem perakaunan & kawalan stok SME lengkap: Rekod Jualan, Belian, Perbelanjaan, Baucar Bayaran, Penghutang/Pemiutang, P&L & Kunci Kira-Kira.
                   </p>
                 </div>
                 <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 space-y-1 text-xs">
                   <div className="flex justify-between text-slate-400">
-                    <span>Aging Receivables:</span>
-                    <span className="font-mono text-white font-medium">$12,400.00</span>
+                    <span>Nilaian Stok Semasa:</span>
+                    <span className="font-mono text-cyan-300 font-medium">RM 32,850.00</span>
                   </div>
                   <div className="flex justify-between text-slate-400">
-                    <span>Auto-Nudges Dispatched:</span>
-                    <span className="text-emerald-400 font-medium">8 this week</span>
+                    <span>Status Kunci Kira-Kira:</span>
+                    <span className="text-emerald-400 font-medium">Imbang Tepat</span>
                   </div>
                 </div>
               </div>
@@ -268,7 +268,7 @@ export default function App() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-400 hover:text-emerald-300 transition-colors"
                 >
-                  <span>Launch Invoicing App</span>
+                  <span>Buka Ezi-Akaun App</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
                 <a 
@@ -308,7 +308,7 @@ export default function App() {
                   </div>
                   <div className="flex justify-between text-slate-400">
                     <span>Quotes Auto-Generated:</span>
-                    <span className="text-indigo-400 font-medium">$14,250 locked</span>
+                    <span className="text-indigo-400 font-medium">RM 14,250 locked</span>
                   </div>
                 </div>
               </div>
@@ -460,7 +460,7 @@ export default function App() {
 
             <div className="space-y-3">
               {[
-                { key: 'invoicing', name: 'Smart Invoicing & Auto-Dunning', price: '$29/mo' },
+                { key: 'invoicing', name: 'Ezi-Akaun & Inventori', price: '$29/mo' },
                 { key: 'intake', name: 'Conversational Intake & Quotes', price: '$29/mo' },
                 { key: 'scheduling', name: 'Shift Exchange & Team Ops', price: '$29/mo' },
                 { key: 'inventory', name: 'Multi-Channel Inventory (Beta)', price: '$29/mo' }
