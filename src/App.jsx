@@ -295,7 +295,7 @@ export default function App() {
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-white group-hover:text-indigo-400 transition-colors">
-                    Conversational Intake & Quotes
+                    Conversational CRMS & Quotes
                   </h3>
                   <p className="text-xs text-slate-400 mt-1 leading-relaxed">
                     Turns messy Instagram/Threads DMs and WhatsApp inquiries into dynamic quotes with card-on-file deposit gating. Zero ghosting.
@@ -315,16 +315,16 @@ export default function App() {
 
               <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
                 <a 
-                  href="https://ezibiz-quotes.pages.dev" 
+                  href="https://ezibiz-crms.pages.dev" 
                   target="_blank" 
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-medium text-indigo-400 hover:text-indigo-300 transition-colors"
                 >
-                  <span>Launch Quotes App</span>
+                  <span>Launch CRMS App</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
                 <a 
-                  href="https://github.com/Amran-KakiTekno/ezibiz-quotes" 
+                  href="https://github.com/Amran-KakiTekno/ezibiz-crms" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-slate-500 hover:text-slate-300 text-xs"
@@ -347,7 +347,7 @@ export default function App() {
                 </div>
                 <div>
                   <h3 className="text-base font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                    Workforce & HR Operations
+                    Workforce & HRMS Operations
                   </h3>
                   <p className="text-xs text-slate-400 mt-1 leading-relaxed">
                     All-in-one team ops: smart shift rosters, peer swaps, mobile geo-attendance, leave/MC approval, employee credentials, and automated payroll runs.
@@ -367,16 +367,16 @@ export default function App() {
 
               <div className="pt-2 border-t border-slate-800 flex items-center justify-between">
                 <a 
-                  href="https://ezibiz-shifts.pages.dev" 
+                  href="https://ezibiz-hrms.pages.dev" 
                   target="_blank" 
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
-                  <span>Launch Shifts & HR App</span>
+                  <span>Launch HRMS App</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
                 <a 
-                  href="https://github.com/Amran-KakiTekno/ezibiz-shifts" 
+                  href="https://github.com/Amran-KakiTekno/ezibiz-hrms" 
                   target="_blank" 
                   rel="noreferrer" 
                   className="text-slate-500 hover:text-slate-300 text-xs"
@@ -461,8 +461,8 @@ export default function App() {
             <div className="space-y-3">
               {[
                 { key: 'invoicing', name: 'Ezi-Akaun & Inventori', price: '$29/mo' },
-                { key: 'intake', name: 'Conversational Intake & Quotes', price: '$29/mo' },
-                { key: 'scheduling', name: 'Shift Exchange & Team Ops', price: '$29/mo' },
+                { key: 'intake', name: 'Conversational CRMS & Quotes', price: '$29/mo' },
+                { key: 'scheduling', name: 'HRMS & Workforce Ops', price: '$29/mo' },
                 { key: 'inventory', name: 'Multi-Channel Inventory (Beta)', price: '$29/mo' }
               ].map(item => (
                 <div 
