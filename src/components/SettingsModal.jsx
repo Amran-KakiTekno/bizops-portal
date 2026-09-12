@@ -1,7 +1,15 @@
 import React, { useEffect } from 'react';
 import { Settings, Sun, Moon, Globe, CheckCircle2, X, Laptop, ShieldCheck } from 'lucide-react';
 
-export default function SettingsModal({ isOpen, onClose, theme, setTheme, language, setLanguage, t }) {
+export default function SettingsModal({ 
+  isOpen, 
+  onClose, 
+  theme = 'light', 
+  setTheme = () => {}, 
+  language = 'en', 
+  setLanguage = () => {}, 
+  t = (k) => k 
+}) {
   useEffect(() => {
     if (!isOpen) return;
     const handleKeyDown = (e) => {

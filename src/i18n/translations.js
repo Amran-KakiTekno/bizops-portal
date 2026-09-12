@@ -122,6 +122,24 @@ export const translations = {
     jmbPoint4Title: 'Digital Notice & Complaint Desk',
     jmbPoint4Desc: 'Broadcast water disruption alerts and let residents report building defects with photos easily.',
 
+    // Settings Modal
+    settingsTitle: 'System Settings',
+    settingsSub: 'Customize appearance and language preferences',
+    close: 'Close',
+    themeLabel: 'Appearance Mode',
+    themeLight: 'Light Mode',
+    themeLightDesc: 'Crisp white workspace, optimal for daylight',
+    themeDark: 'Dark Mode',
+    themeDarkDesc: 'High-contrast dark palette, gentle on eyes',
+    languageLabel: 'Interface Language',
+    langEn: 'English',
+    langEnDesc: 'Default interface language',
+    langMs: 'Bahasa Melayu',
+    langMsDesc: 'Localised Malaysian Malay language',
+    aboutWorkspace: 'Workspace',
+    aboutDeploy: 'Hosting',
+    aboutVersion: 'Version',
+
     // Footer
     footerCopyright: '© 2026 EziBiz. All solutions run independently with zero cross-system locks.'
   },
@@ -248,6 +266,24 @@ export const translations = {
     jmbPoint3Desc: 'Tunjukkan kepada pemilik ke mana wang mereka dibelanjakan—servis lif, kawalan keselamatan, dan pembersihan.',
     jmbPoint4Title: 'Papan Notis & Aduan Kerosakan',
     jmbPoint4Desc: 'Hantar makluman gangguan air atau kerja baik pulih, dan beri kemudahan kepada penduduk melaporkan kerosakan dengan gambar.',
+
+    // Settings Modal
+    settingsTitle: 'Tetapan Sistem',
+    settingsSub: 'Pilihan paparan dan bahasa aplikasi',
+    close: 'Tutup',
+    themeLabel: 'Mod Paparan',
+    themeLight: 'Mod Cerah',
+    themeLightDesc: 'Latar cerah dan jelas, sesuai waktu siang',
+    themeDark: 'Mod Gelap',
+    themeDarkDesc: 'Latar gelap, selesa untuk mata waktu malam',
+    languageLabel: 'Pilihan Bahasa',
+    langEn: 'Bahasa Inggeris',
+    langEnDesc: 'Bahasa antara muka standard (English)',
+    langMs: 'Bahasa Melayu',
+    langMsDesc: 'Bahasa kebangsaan yang mesra pengguna',
+    aboutWorkspace: 'Organisasi',
+    aboutDeploy: 'Pengehosan',
+    aboutVersion: 'Versi',
 
     // Footer
     footerCopyright: '© 2026 EziBiz. Semua produk beroperasi sendiri tanpa sebarang ikatan sistem lain.'
