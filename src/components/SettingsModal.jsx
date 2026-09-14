@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Settings, Sun, Moon, Globe, CheckCircle2, X, Laptop, ShieldCheck } from 'lucide-react';
 
 export default function SettingsModal({ 
@@ -10,16 +10,65 @@ export default function SettingsModal({
   setLanguage = () => {}, 
   t = (k) => k 
 }) {
+  const modalRef = useRef(null);
+  const previousActiveElement = useRef(null);
+
   useEffect(() => {
     if (!isOpen) return;
+
+    previousActiveElement.current = document.activeElement;
+
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+
+      if (e.key === 'Tab') {
+        if (!modalRef.current) return;
+        const focusableElements = modalRef.current.querySelectorAll(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement || !modalRef.current.contains(document.activeElement)) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement || !modalRef.current.contains(document.activeElement)) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
     };
+
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
+
+    const frameId = requestAnimationFrame(() => {
+      if (modalRef.current) {
+        const focusables = modalRef.current.querySelectorAll(
+          'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length > 0) {
+          focusables[0].focus();
+        }
+      }
+    });
+
     return () => {
+      cancelAnimationFrame(frameId);
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
+      if (previousActiveElement.current && typeof previousActiveElement.current.focus === 'function') {
+        previousActiveElement.current.focus();
+      }
     };
   }, [isOpen, onClose]);
 
@@ -31,8 +80,14 @@ export default function SettingsModal({
       role="dialog"
       aria-modal="true"
       aria-labelledby="settings-title"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
     >
       <div 
+        ref={modalRef}
         className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 space-y-6 shadow-2xl text-slate-900 dark:text-slate-100 animate-in zoom-in-95 duration-150"
       >
         {/* Modal Header */}
