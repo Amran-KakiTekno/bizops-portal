@@ -40,7 +40,7 @@ export default function ProductDetailPage({ productId, onBack, t, url }) {
       accentColor: 'emerald',
       accentBg: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
       buttonBg: 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/20',
-      preview: <AkaunVisualPreview />
+      preview: <AkaunVisualPreview t={t} />
     },
     crms: {
       name: t('crmsName'),

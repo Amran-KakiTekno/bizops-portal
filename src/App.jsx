@@ -77,6 +77,7 @@ export default function App() {
   const products = [
     {
       id: 'akaun',
+      shortName: 'Akaun',
       category: 'finance',
       name: t('akaunName'),
       tagline: t('akaunTagline'),
@@ -86,11 +87,12 @@ export default function App() {
       accentColor: 'emerald',
       badgeClass: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20',
       buttonBg: 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/20',
-      preview: <AkaunVisualPreview isCompact={true} />,
+      preview: <AkaunVisualPreview isCompact={true} t={t} />,
       points: [t('akaunPoint1Title'), t('akaunPoint2Title'), t('akaunPoint3Title')]
     },
     {
       id: 'crms',
+      shortName: 'CRMS',
       category: 'sales',
       name: t('crmsName'),
       tagline: t('crmsTagline'),
@@ -105,6 +107,7 @@ export default function App() {
     },
     {
       id: 'hrms',
+      shortName: 'HRMS',
       category: 'hr',
       name: t('hrmsName'),
       tagline: t('hrmsTagline'),
@@ -119,6 +122,7 @@ export default function App() {
     },
     {
       id: 'jmb',
+      shortName: 'JMB',
       category: 'property',
       name: t('jmbName'),
       tagline: t('jmbTagline'),
@@ -190,7 +194,7 @@ export default function App() {
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
-                  {prod.name.split(' ')[1]}
+                  {prod.shortName}
                 </button>
               ))}
             </nav>
@@ -252,7 +256,7 @@ export default function App() {
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              {prod.name.split(' ')[1]}
+              {prod.shortName}
             </button>
           ))}
         </nav>
@@ -334,8 +338,8 @@ export default function App() {
                           <span className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${prod.badgeClass}`}>
                             {prod.audience}
                           </span>
-                          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-                            Sistem Berasingan
+                          <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                            {t('separateSystem')}
                           </span>
                         </div>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Receipt, TrendingUp, AlertTriangle, CheckCircle2, ShieldCheck, Printer, ArrowUpRight } from 'lucide-react';
 
-export default function AkaunVisualPreview({ isCompact = false }) {
+export default function AkaunVisualPreview({ isCompact = false, t = (k) => k }) {
   return (
     <div className="w-full rounded-2xl bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 border border-emerald-500/20 text-slate-100 p-4 sm:p-5 shadow-2xl relative overflow-hidden font-sans select-none">
       {/* Background glow accent */}
@@ -17,10 +17,10 @@ export default function AkaunVisualPreview({ isCompact = false }) {
             <div className="flex items-center gap-2">
               <span className="text-xs font-bold text-white tracking-wide">EziBiz Akaun & Stok</span>
               <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                Live Overview
+                {t('previewLiveOverview')}
               </span>
             </div>
-            <p className="text-[10px] text-slate-400">Penyata Jualan, Kawalan Inventori & Resit Rasmi</p>
+            <p className="text-[10px] text-slate-400">{t('previewAkaunDesc')}</p>
           </div>
         </div>
         <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2.5 py-1 rounded-full">
