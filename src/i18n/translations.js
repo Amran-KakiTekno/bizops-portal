@@ -10,6 +10,7 @@ export const translations = {
     launchStandaloneApp: 'Launch Live App',
     quickTour: 'View Use Case & Details',
     independentBadge: '100% Standalone Solution',
+    separateSystem: 'Standalone System',
 
     // Category Filter Chips
     catAll: 'All Solutions (4)',
@@ -64,6 +65,10 @@ export const translations = {
     akaunPoint3Desc: 'Print clean receipts formatted for standard A4 paper or save as digital PDF to WhatsApp to customers.',
     akaunPoint4Title: 'Safe Mistake Reversal',
     akaunPoint4Desc: 'Typed the wrong price? Void the sale with 1 click and the inventory is automatically returned to the shelf.',
+    akaunPreviewBadge: 'Live Overview',
+    akaunPreviewSubtitle: 'Sales Statements, Inventory Control & Official Receipts',
+    previewLiveOverview: 'Live Overview',
+    previewAkaunDesc: 'Sales Statements, Inventory Control & Official Receipts',
 
     // Product 2: CRMS
     crmsName: 'EziBiz CRMS & Sebut Harga',
@@ -155,6 +160,7 @@ export const translations = {
     launchStandaloneApp: 'Buka Aplikasi Live',
     quickTour: 'Lihat Contoh & Penerangan',
     independentBadge: '100% Berdiri Sendiri',
+    separateSystem: 'Sistem Berasingan',
 
     // Category Filter Chips
     catAll: 'Semua Produk (4)',
@@ -209,6 +215,10 @@ export const translations = {
     akaunPoint3Desc: 'Cetak resit bayaran yang kemas untuk kertas A4 atau simpan terus ke bentuk PDF untuk dihantar melalui WhatsApp.',
     akaunPoint4Title: 'Pembatalan Transaksi Selamat',
     akaunPoint4Desc: 'Tersilap tekan harga? Batalkan jualan dengan 1 klik dan unit stok akan dimasukkan semula ke dalam stor secara automatik.',
+    akaunPreviewBadge: 'Tinjauan Langsung',
+    akaunPreviewSubtitle: 'Penyata Jualan, Kawalan Inventori & Resit Rasmi',
+    previewLiveOverview: 'Tinjauan Langsung',
+    previewAkaunDesc: 'Penyata Jualan, Kawalan Inventori & Resit Rasmi',
 
     // Product 2: CRMS
     crmsName: 'EziBiz CRMS & Sebut Harga',

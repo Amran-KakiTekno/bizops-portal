@@ -77,6 +77,7 @@ export default function App() {
   const products = [
     {
       id: 'akaun',
+      shortName: 'Akaun',
       category: 'finance',
       name: t('akaunName'),
       tagline: t('akaunTagline'),
@@ -86,11 +87,12 @@ export default function App() {
       accentColor: 'emerald',
       badgeClass: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20',
       buttonBg: 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-500/20',
-      preview: <AkaunVisualPreview isCompact={true} />,
+      preview: <AkaunVisualPreview isCompact={true} t={t} />,
       points: [t('akaunPoint1Title'), t('akaunPoint2Title'), t('akaunPoint3Title')]
     },
     {
       id: 'crms',
+      shortName: 'CRMS',
       category: 'sales',
       name: t('crmsName'),
       tagline: t('crmsTagline'),
@@ -105,6 +107,7 @@ export default function App() {
     },
     {
       id: 'hrms',
+      shortName: 'HRMS',
       category: 'hr',
       name: t('hrmsName'),
       tagline: t('hrmsTagline'),
@@ -119,6 +122,7 @@ export default function App() {
     },
     {
       id: 'jmb',
+      shortName: 'JMB',
       category: 'property',
       name: t('jmbName'),
       tagline: t('jmbTagline'),
@@ -169,6 +173,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => navigateTo('directory')}
+                aria-current={activeView === 'directory' ? 'page' : undefined}
                 className={`px-3 py-1.5 rounded-lg font-medium transition-colors cursor-pointer ${
                   activeView === 'directory'
                     ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold'
@@ -182,13 +187,14 @@ export default function App() {
                   key={prod.id}
                   type="button"
                   onClick={() => navigateTo(prod.id)}
+                  aria-current={activeView === prod.id ? 'page' : undefined}
                   className={`px-3 py-1.5 rounded-lg font-medium transition-colors cursor-pointer ${
                     activeView === prod.id
                       ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
-                  {prod.name.split(' ')[1]}
+                  {prod.shortName}
                 </button>
               ))}
             </nav>
@@ -205,17 +211,17 @@ export default function App() {
             <button
               type="button"
               onClick={() => setLanguage(language === 'ms' ? 'en' : 'ms')}
-              className="px-2.5 py-1.5 rounded-xl text-xs font-mono font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors cursor-pointer min-h-[36px]"
+              className="px-2.5 py-1.5 rounded-xl text-xs font-mono font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors cursor-pointer min-h-[44px] min-w-[44px] flex items-center justify-center"
               title="Tukar Bahasa / Switch Language"
             >
-              {language === 'ms' ? 'BM' : 'EN'}
+              {language === 'ms' ? 'EN' : 'BM'}
             </button>
 
             {/* Settings Trigger */}
             <button
               type="button"
               onClick={() => setShowSettingsModal(true)}
-              className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
+              className="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors cursor-pointer min-w-[44px] min-h-[44px] flex items-center justify-center"
               aria-label={t('settings')}
               title={t('settings')}
             >
@@ -223,6 +229,37 @@ export default function App() {
             </button>
           </div>
         </div>
+
+        {/* Mobile Product Chip Strip (Below lg) */}
+        <nav className="lg:hidden flex gap-2 overflow-x-auto px-4 pb-2 -mt-1" aria-label="Products">
+          <button
+            type="button"
+            onClick={() => navigateTo('directory')}
+            aria-current={activeView === 'directory' ? 'page' : undefined}
+            className={`px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
+              activeView === 'directory'
+                ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            {t('allProducts')}
+          </button>
+          {products.map(prod => (
+            <button
+              key={prod.id}
+              type="button"
+              onClick={() => navigateTo(prod.id)}
+              aria-current={activeView === prod.id ? 'page' : undefined}
+              className={`px-3 py-1.5 rounded-lg font-medium text-xs whitespace-nowrap transition-colors cursor-pointer shrink-0 ${
+                activeView === prod.id
+                  ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+              }`}
+            >
+              {prod.shortName}
+            </button>
+          ))}
+        </nav>
       </header>
 
       {/* MAIN BODY */}
@@ -267,7 +304,8 @@ export default function App() {
                     key={cat.id}
                     type="button"
                     onClick={() => setCategoryFilter(cat.id)}
-                    className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                    aria-pressed={categoryFilter === cat.id}
+                    className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[44px] inline-flex items-center justify-center ${
                       categoryFilter === cat.id
                         ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-md'
                         : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
@@ -300,8 +338,8 @@ export default function App() {
                           <span className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full border ${prod.badgeClass}`}>
                             {prod.audience}
                           </span>
-                          <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
-                            Sistem Berasingan
+                          <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                            {t('separateSystem')}
                           </span>
                         </div>
 
@@ -419,7 +457,10 @@ export default function App() {
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500 dark:text-slate-400">
+      <footer 
+        className="border-t border-slate-200 dark:border-slate-800 py-8 text-center text-xs text-slate-500 dark:text-slate-400"
+        style={{ paddingBottom: 'calc(2rem + env(safe-area-inset-bottom, 0px))' }}
+      >
         <p>{t('footerCopyright')}</p>
       </footer>
 
