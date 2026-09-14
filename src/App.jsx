@@ -169,6 +169,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => navigateTo('directory')}
+                aria-current={activeView === 'directory' ? 'page' : undefined}
                 className={`px-3 py-1.5 rounded-lg font-medium transition-colors cursor-pointer ${
                   activeView === 'directory'
                     ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold'
@@ -182,6 +183,7 @@ export default function App() {
                   key={prod.id}
                   type="button"
                   onClick={() => navigateTo(prod.id)}
+                  aria-current={activeView === prod.id ? 'page' : undefined}
                   className={`px-3 py-1.5 rounded-lg font-medium transition-colors cursor-pointer ${
                     activeView === prod.id
                       ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-semibold'
@@ -208,7 +210,7 @@ export default function App() {
               className="px-2.5 py-1.5 rounded-xl text-xs font-mono font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors cursor-pointer min-h-[36px]"
               title="Tukar Bahasa / Switch Language"
             >
-              {language === 'ms' ? 'BM' : 'EN'}
+              {language === 'ms' ? 'EN' : 'BM'}
             </button>
 
             {/* Settings Trigger */}
@@ -267,6 +269,7 @@ export default function App() {
                     key={cat.id}
                     type="button"
                     onClick={() => setCategoryFilter(cat.id)}
+                    aria-pressed={categoryFilter === cat.id}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                       categoryFilter === cat.id
                         ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-md'
